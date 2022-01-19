@@ -1,3 +1,11 @@
+import 'package:ab_assignment/utils/dimen.dart';
+import 'package:ab_assignment/utils/string.dart';
+import 'package:ab_assignment/widgets/appbar_logo.dart';
+import 'package:ab_assignment/widgets/language_text_button.dart';
+import 'package:ab_assignment/widgets/login_button.dart';
+import 'package:ab_assignment/widgets/sign_up_button.dart';
+import 'package:ab_assignment/widgets/version_number.dart';
+import 'package:ab_assignment/widgets/welcome_text.dart';
 import 'package:flutter/material.dart';
 
 class PreLoginPage extends StatefulWidget {
@@ -11,7 +19,56 @@ class _PreLoginPageState extends State<PreLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      appBar: AppBar(
+        elevation: 0,
+        leading: const Center(
+          child: VersionNumber(),
+        ),
+        title: const AppbarLogo(),
+        actions: const [LanguageTextButton()],
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(paddingSize),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              WelcomeText(),
+              SizedBox(
+                height: paddingSize,
+              ),
+              LoginButton(),
+              SizedBox(
+                height: paddingSizeSmall,
+              ),
+              SignUpButton()
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 2,
+        showUnselectedLabels: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        fixedColor: Colors.white,
+        unselectedItemColor: Colors.white.withAlpha(preLoginAlpha),
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lock_outlined),
+            label: alternativePassword,
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.atm_outlined), label: atmOrBranch),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.show_chart_outlined), label: exchangeRates),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.headset_mic_outlined), label: contact)
+        ],
+      ),
     );
   }
 }

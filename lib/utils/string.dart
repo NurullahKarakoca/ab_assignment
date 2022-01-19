@@ -1,0 +1,10 @@
+const versionNumber = "v1.0.0";
+const languageText = "EN";
+const appTitle = "Alternatif Bank Assignment";
+const welcome = "Hoş Geldiniz";
+const login = "Giriş Yap";
+const alternativePassword = "Alternatif Şifre";
+const atmOrBranch = "ATM/Şube";
+const exchangeRates = "Döviz Kurları";
+const contact = "İletişim";
+const signUp = "Müşteri Ol";

@@ -1,5 +1,6 @@
 import 'package:ab_assignment/pages/pre_login_page.dart';
 import 'package:ab_assignment/utils/color.dart';
+import 'package:ab_assignment/utils/string.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Alternatif Bank Assignment',
+      title: appTitle,
       theme: ThemeData(colorScheme: ColorScheme.light(primary: primaryColor)),
       debugShowCheckedModeBanner: false,
       home: const PreLoginPage(),
