@@ -1,4 +1,5 @@
 import 'package:ab_assignment/utils/dimen.dart';
+import 'package:ab_assignment/utils/route.dart';
 import 'package:ab_assignment/utils/string.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,9 @@ class LoginButton extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(minWidth: maxButtonWidth),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, routeLogin);
+        },
         child: const Text(login),
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.white),

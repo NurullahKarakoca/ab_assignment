@@ -1,11 +1,11 @@
 import 'package:ab_assignment/utils/dimen.dart';
 import 'package:ab_assignment/utils/string.dart';
-import 'package:ab_assignment/widgets/appbar_logo.dart';
-import 'package:ab_assignment/widgets/language_text_button.dart';
-import 'package:ab_assignment/widgets/login_button.dart';
-import 'package:ab_assignment/widgets/sign_up_button.dart';
-import 'package:ab_assignment/widgets/version_number.dart';
-import 'package:ab_assignment/widgets/welcome_text.dart';
+import 'package:ab_assignment/widgets/prelogin/appbar_logo.dart';
+import 'package:ab_assignment/widgets/prelogin/language_text_button.dart';
+import 'package:ab_assignment/widgets/prelogin/login_button.dart';
+import 'package:ab_assignment/widgets/prelogin/sign_up_button.dart';
+import 'package:ab_assignment/widgets/prelogin/version_number.dart';
+import 'package:ab_assignment/widgets/prelogin/welcome_text.dart';
 import 'package:flutter/material.dart';
 
 class PreLoginPage extends StatefulWidget {

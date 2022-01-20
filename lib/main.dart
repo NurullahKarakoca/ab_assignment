@@ -1,7 +1,10 @@
+import 'package:ab_assignment/pages/login_page.dart';
 import 'package:ab_assignment/pages/pre_login_page.dart';
 import 'package:ab_assignment/utils/color.dart';
 import 'package:ab_assignment/utils/string.dart';
 import 'package:flutter/material.dart';
+
+import 'utils/route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +17,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: appTitle,
-      theme: ThemeData(colorScheme: ColorScheme.light(primary: primaryColor)),
+      theme: ThemeData(
+          primaryColor: primaryColor,
+          inputDecorationTheme:
+              const InputDecorationTheme(border: OutlineInputBorder()),
+          colorScheme: const ColorScheme.light(primary: primaryColor)),
       debugShowCheckedModeBanner: false,
-      home: const PreLoginPage(),
+      initialRoute: routeRoot,
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case routeRoot:
+            return MaterialPageRoute(
+                builder: (context) => const PreLoginPage());
+          case routeLogin:
+            return MaterialPageRoute(builder: (context) => const LoginPage());
+        }
+      },
     );
   }
 }
