@@ -1,6 +1,7 @@
 import 'package:ab_assignment/db/shared_pref.dart';
 import 'package:ab_assignment/network/api_network_interceptor.dart';
 import 'package:ab_assignment/repositories/authentication_repository.dart';
+import 'package:ab_assignment/repositories/bank_account_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,4 +17,5 @@ Future<void> initLocator() async {
   locator.registerLazySingleton(() => SharedPref(preferences));
 
   locator.registerLazySingleton(() => AuthenticationRepository());
+  locator.registerLazySingleton(() => BankAccountRepository());
 }

@@ -1,3 +1,4 @@
+import 'package:ab_assignment/pages/money_transfer_page.dart';
 import 'package:ab_assignment/utils/string.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var _currentIndex = 1;
+  var _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +55,7 @@ class _MainBody extends StatelessWidget {
         Center(
           child: Text(home),
         ),
-        Center(
-          child: Text(moneyTransfer),
-        ),
+        MoneyTransferPage(),
         Center(
           child: Text(payments),
         ),
