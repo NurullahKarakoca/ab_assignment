@@ -12,7 +12,7 @@ class VersionNumber extends StatelessWidget {
       style: Theme.of(context)
           .textTheme
           .caption
-          ?.apply(color: Colors.white.withAlpha(preLoginAlpha)),
+          ?.apply(color: Colors.white.withAlpha(textColorAlpha)),
     );
   }
 }

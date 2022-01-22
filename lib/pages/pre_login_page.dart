@@ -51,11 +51,6 @@ class _PreLoginPageState extends State<PreLoginPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 2,
-        showUnselectedLabels: true,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        fixedColor: Colors.white,
-        unselectedItemColor: Colors.white.withAlpha(preLoginAlpha),
-        type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.lock_outlined),

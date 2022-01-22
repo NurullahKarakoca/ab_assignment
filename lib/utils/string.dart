@@ -18,3 +18,8 @@ const idNumberLengthErrorMessage = "*11 haneli olmalıdır.";
 const password = "Şifre";
 const passwordMinLengthErrorMessage = "*En az 6 haneli olmalıdır.";
 const rememberMe = "Beni Hatırla";
+
+const home = "Ana Sayfa";
+const moneyTransfer = "EFT";
+const payments = "Ödemeler";
+const profile = "Profil";

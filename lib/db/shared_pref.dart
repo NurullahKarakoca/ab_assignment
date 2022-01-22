@@ -15,7 +15,7 @@ class SharedPref {
     if (jsonStr == null) {
       return LoginUser.empty();
     }
-    final json = jsonDecode(jsonStr!);
+    final json = jsonDecode(jsonStr);
     return LoginUser.fromJson(json);
   }
 

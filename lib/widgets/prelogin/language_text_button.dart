@@ -11,7 +11,7 @@ class LanguageTextButton extends StatelessWidget {
         onPressed: () {},
         child: Text(
           languageText,
-          style: TextStyle(color: Colors.white.withAlpha(preLoginAlpha)),
+          style: TextStyle(color: Colors.white.withAlpha(textColorAlpha)),
         ));
   }
 }

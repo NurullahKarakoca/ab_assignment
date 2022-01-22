@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/login_page.dart';
+import 'pages/main_page.dart';
+import 'utils/dimen.dart';
 import 'utils/route.dart';
 
 main() async {
@@ -24,6 +26,13 @@ class MyApp extends StatelessWidget {
       title: appTitle,
       theme: ThemeData(
           primaryColor: primaryColor,
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            showUnselectedLabels: true,
+            backgroundColor: primaryColor,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white.withAlpha(textColorAlpha),
+            type: BottomNavigationBarType.fixed,
+          ),
           inputDecorationTheme:
               const InputDecorationTheme(border: OutlineInputBorder()),
           colorScheme: const ColorScheme.light(primary: primaryColor)),
@@ -37,9 +46,11 @@ class MyApp extends StatelessWidget {
           case routeLogin:
             return MaterialPageRoute(
                 builder: (context) => ChangeNotifierProvider(
-                      create: (context) => AuthenticationViewModel(),
+                      create: (context) => AuthenticationViewModel(context),
                       child: const LoginPage(),
                     ));
+          case routeMain:
+            return MaterialPageRoute(builder: (context) => const MainPage());
         }
       },
     );
