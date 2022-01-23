@@ -5,4 +5,7 @@ class MoneyTransferModel {
   String? transactionType;
   String? ibanNumber;
   String? nameSurname;
+  DateTime? transferDate;
+  double? amount;
+  String? explanation;
 }

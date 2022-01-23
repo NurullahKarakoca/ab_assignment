@@ -1,6 +1,7 @@
 import 'package:ab_assignment/models/money_transfer_model.dart';
 import 'package:ab_assignment/widgets/moneytransfer/receiver_information_step_content.dart';
 import 'package:ab_assignment/widgets/moneytransfer/sender_bank_account_step_content.dart';
+import 'package:ab_assignment/widgets/moneytransfer/transfer_information_step_content.dart';
 import 'package:flutter/material.dart';
 
 class MoneyTransferPage extends StatefulWidget {
@@ -55,7 +56,16 @@ class _MoneyTransferPageState extends State<MoneyTransferPage> {
                     });
                   }),
               state: receiverInformationStepState),
-          Step(title: const Text("Transfer Bilgileri"), content: Container())
+          Step(
+              title: const Text("Transfer Bilgileri"),
+              content: TransferInformationStepContent(
+                  model: _moneyTransferModel,
+                  onNextStep: () {},
+                  onPreviousStep: () {
+                    setState(() {
+                      _currentStep = 1;
+                    });
+                  }))
         ]);
   }
 }
