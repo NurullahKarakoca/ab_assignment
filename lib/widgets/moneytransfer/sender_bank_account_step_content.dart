@@ -3,7 +3,7 @@ import 'package:ab_assignment/utils/dimen.dart';
 import 'package:ab_assignment/widgets/bank_account/select_bank_account.dart';
 import 'package:flutter/material.dart';
 
-import 'continue_button.dart';
+import 'next_step_button.dart';
 
 class SenderBankAccountStepContent extends StatefulWidget {
   final MoneyTransferModel model;
@@ -31,19 +31,22 @@ class _SenderBankAccountStepContentState
             });
           },
         ),
-        SizedBox(
+        const SizedBox(
           height: paddingSize,
         ),
-        Text(
+        const Text(
             "İşlemin gerçekleştiği tarihte hesabınızda yeterli bakiye bulunması gerekmektedir."),
-        SizedBox(
+        const SizedBox(
           height: paddingSize,
         ),
         if (widget.model.bankAccount != null)
-          ContinueButton(
-            onPressed: () {
-              widget.onNextStep();
-            },
+          SizedBox(
+            width: double.maxFinite,
+            child: NextStepButton(
+              onPressed: () {
+                widget.onNextStep();
+              },
+            ),
           )
       ],
     );

@@ -1,4 +1,5 @@
 import 'package:ab_assignment/models/money_transfer_model.dart';
+import 'package:ab_assignment/widgets/moneytransfer/receiver_information_step_content.dart';
 import 'package:ab_assignment/widgets/moneytransfer/sender_bank_account_step_content.dart';
 import 'package:flutter/material.dart';
 
@@ -16,17 +17,20 @@ class _MoneyTransferPageState extends State<MoneyTransferPage> {
   get senderAccountStepState =>
       _currentStep != 0 ? StepState.complete : StepState.editing;
 
+  get receiverInformationStepState =>
+      _currentStep != 1 ? StepState.complete : StepState.editing;
+
   @override
   Widget build(BuildContext context) {
     return Stepper(
         physics: const ScrollPhysics(),
         currentStep: _currentStep,
         controlsBuilder: (context, details) {
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
         steps: [
           Step(
-              title: Text("Gönderen Hesap"),
+              title: const Text("Gönderen Hesap"),
               content: SenderBankAccountStepContent(
                 model: _moneyTransferModel,
                 onNextStep: () {
@@ -36,8 +40,22 @@ class _MoneyTransferPageState extends State<MoneyTransferPage> {
                 },
               ),
               state: senderAccountStepState),
-          Step(title: Text("Alıcı Bilgileri"), content: Container()),
-          Step(title: Text("Transfer Bilgileri"), content: Container())
+          Step(
+              title: const Text("Alıcı Bilgileri"),
+              content: ReceiverInformationStepContent(
+                  model: _moneyTransferModel,
+                  onNextStep: () {
+                    setState(() {
+                      _currentStep = 2;
+                    });
+                  },
+                  onPreviousStep: () {
+                    setState(() {
+                      _currentStep = 0;
+                    });
+                  }),
+              state: receiverInformationStepState),
+          Step(title: const Text("Transfer Bilgileri"), content: Container())
         ]);
   }
 }
