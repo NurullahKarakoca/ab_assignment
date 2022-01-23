@@ -3,7 +3,8 @@ import 'package:dio/dio.dart';
 class ApiNetworkInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.baseUrl = "http://192.168.1.49:3000/";
+    options.baseUrl = "http://192.168.1.116:3000/";
+    options.connectTimeout = 10000;
     handler.next(options);
   }
 
