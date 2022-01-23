@@ -13,7 +13,9 @@ class AuthenticationRepository {
   Future<NetworkState> login(LoginUser loginUser) async {
     NetworkState state;
     try {
-      await _dio.post("login", data: loginUser.toJson());
+      final response = await _dio.post("login", data: loginUser.toJson());
+      loginUser.token = response.data;
+      loginUser.password = "";
       _pref.loginUser = loginUser;
       state = NetworkState.loaded;
     } on DioError catch (e) {
@@ -22,7 +24,17 @@ class AuthenticationRepository {
     return state;
   }
 
-  logout() {
-    _pref.loginUser = LoginUser.empty();
+  Future<NetworkState> logout() async {
+    NetworkState state;
+    try {
+      await _dio.post("logout");
+      final loginUser = _pref.loginUser;
+      loginUser.token = "";
+      _pref.loginUser = loginUser;
+      state = NetworkState.loaded;
+    } on DioError catch (e) {
+      state = NetworkState.failed(e.error);
+    }
+    return state;
   }
 }

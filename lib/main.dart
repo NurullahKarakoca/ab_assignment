@@ -1,3 +1,4 @@
+import 'package:ab_assignment/db/shared_pref.dart';
 import 'package:ab_assignment/locator.dart';
 import 'package:ab_assignment/pages/pre_login_page.dart';
 import 'package:ab_assignment/utils/color.dart';
@@ -22,6 +23,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final initialRoute = locator<SharedPref>().loginUser.token.isNotEmpty
+        ? routeMain
+        : routeRoot;
+
     return MaterialApp(
       title: appTitle,
       theme: ThemeData(
@@ -37,7 +42,7 @@ class MyApp extends StatelessWidget {
               const InputDecorationTheme(border: OutlineInputBorder()),
           colorScheme: const ColorScheme.light(primary: primaryColor)),
       debugShowCheckedModeBanner: false,
-      initialRoute: routeRoot,
+      initialRoute: initialRoute,
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case routeRoot:
