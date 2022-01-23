@@ -25,6 +25,7 @@ class _SenderBankAccountStepContentState
     return Column(
       children: [
         SelectBankAccount(
+          bankAccount: widget.model.bankAccount,
           onSelect: (bankAccount) {
             setState(() {
               widget.model.bankAccount = bankAccount;
