@@ -32,5 +32,9 @@ class AuthenticationViewModel extends ChangeNotifier {
     }
   }
 
-  void logout() => _authRepository.logout();
+  void logout() {
+    _authRepository.logout();
+    Navigator.pushNamedAndRemoveUntil(
+        context, routeRoot, ModalRoute.withName(routeRoot));
+  }
 }

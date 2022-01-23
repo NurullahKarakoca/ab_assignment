@@ -50,7 +50,10 @@ class MyApp extends StatelessWidget {
                       child: const LoginPage(),
                     ));
           case routeMain:
-            return MaterialPageRoute(builder: (context) => const MainPage());
+            return MaterialPageRoute(
+                builder: (context) => ChangeNotifierProvider(
+                    create: (context) => AuthenticationViewModel(context),
+                    child: const MainPage()));
         }
       },
     );

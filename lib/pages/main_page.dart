@@ -1,4 +1,5 @@
 import 'package:ab_assignment/pages/money_transfer_page.dart';
+import 'package:ab_assignment/pages/profile_page.dart';
 import 'package:ab_assignment/utils/string.dart';
 import 'package:flutter/material.dart';
 
@@ -59,9 +60,7 @@ class _MainBody extends StatelessWidget {
         Center(
           child: Text(payments),
         ),
-        Center(
-          child: Text(profile),
-        ),
+        ProfilePage()
       ],
     );
   }
