@@ -7,7 +7,7 @@ class ApiNetworkInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final token = locator<SharedPref>().loginUser.token;
-    options.baseUrl = "http://192.168.1.116:3000/";
+    options.baseUrl = "https://abassignment.herokuapp.com/";
     options.connectTimeout = 10000;
     options.headers.addAll({"authorization": "Bearer $token"});
     handler.next(options);
